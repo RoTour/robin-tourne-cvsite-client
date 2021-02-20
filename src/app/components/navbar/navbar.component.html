@@ -1,0 +1,18 @@
+<nav class="nav-extended grey darken-4" style="padding: 0 20px">
+<!-- On Desktop -->
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">RoTour - CV SITE</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li *ngFor="let item of items" class="tab"><a [href]="textToPath(item)">{{item}}</a></li>
+      <li *ngIf="!authService.isLoggedIn()" class="tab"><a [href]="'login'">Login</a></li>
+    </ul>
+  </div>
+
+<!-- On Mobile -->
+  <div class="nav-content hide-on-large-only">
+    <ul class="tabs tabs-transparent">
+      <li *ngFor="let item of items" class="tab"><a [href]="textToPath(item)">{{item}}</a></li>
+      <li *ngIf="!authService.isLoggedIn()" class="tab"><a [href]="'login'">Login</a></li>
+    </ul>
+  </div>
+</nav>
