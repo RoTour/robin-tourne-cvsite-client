@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
