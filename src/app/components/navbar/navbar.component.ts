@@ -14,14 +14,31 @@ export class NavbarComponent implements OnInit {
     'Comments',
   ];
 
-  constructor(public authService: AuthService) {}
+  username = '';
+
+  dropdownState = 'hiddendiv';
+
+  constructor(public authService: AuthService) {
+  }
 
   ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+    }
   }
+
+
 
   textToPath(str: string): string {
     str = str.replace(' ', '-');
     return str.toLowerCase();
   }
 
+  toggleDropdown(): void {
+    this.dropdownState = this.dropdownState === 'hiddendiv' ? 'show' : 'hiddendiv';
+  }
+
+  logoutUser(): void {
+    this.authService.logout();
+    location.reload();
+  }
 }

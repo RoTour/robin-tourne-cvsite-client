@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(payload)
       .subscribe(
         async (data: any) => {
+          console.log(data);
           // console.log([{ broken: data['token'] }, { clea: data.token }]);
-          this.authService.setToken(data.token);
+          this.authService.setData(data.token, data.username);
           await this.router.navigate(['/']);
         },
         error => {

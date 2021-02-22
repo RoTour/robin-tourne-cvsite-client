@@ -1,18 +1,53 @@
-<nav class="nav-extended grey darken-4" style="padding: 0 20px">
-<!-- On Desktop -->
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">RoTour - CV SITE</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li *ngFor="let item of items" class="tab"><a [href]="textToPath(item)">{{item}}</a></li>
-      <li *ngIf="!authService.isLoggedIn()" class="tab"><a [href]="'login'">Login</a></li>
-    </ul>
-  </div>
+<!--<nav class="nav-extended grey darken-4" style="padding: 0 20px">-->
+<!--  &lt;!&ndash; On Desktop &ndash;&gt;-->
+<!--  <div class="nav-wrapper">-->
+<!--    <a href="#" class="brand-logo">RoTour - CV SITE</a>-->
+<!--    <ul id="nav-mobile" class="right hide-on-med-and-down">-->
+<!--      <li *ngFor="let item of items" class="tab"><a [routerLink]="textToPath(item)">{{item}}</a></li>-->
+<!--      <li *ngIf="!authService.isLoggedIn()" class="tab"><a [routerLink]="'login'">Login</a></li>-->
+<!--      <li *ngIf="authService.isLoggedIn()" class="tab">-->
+<!--        User-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
 
-<!-- On Mobile -->
-  <div class="nav-content hide-on-large-only">
-    <ul class="tabs tabs-transparent">
-      <li *ngFor="let item of items" class="tab"><a [href]="textToPath(item)">{{item}}</a></li>
-      <li *ngIf="!authService.isLoggedIn()" class="tab"><a [href]="'login'">Login</a></li>
-    </ul>
-  </div>
-</nav>
+<!--  &lt;!&ndash; On Mobile &ndash;&gt;-->
+<!--  <div class="nav-content hide-on-large-only">-->
+<!--    <ul class="tabs tabs-transparent">-->
+<!--      <li *ngFor="let item of items" class="tab"><a [routerLink]="textToPath(item)">{{item}}</a></li>-->
+<!--      <li *ngIf="!authService.isLoggedIn()" class="tab"><a [routerLink]="'login'">Login</a></li>-->
+<!--      <li *ngIf="authService.isLoggedIn()">-->
+<!--        <a class="tab dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a>-->
+<!--      </li>-->
+<!--      &lt;!&ndash;      <li *ngIf="authService.isLoggedIn()" class="tab"><a [routerLink]="">Login</a></li>&ndash;&gt;-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<div class="row navbar-wrapper">
+  <nav class="s12 navbar grey darken-4">
+    <div class="navbar-part navbar-left-block">
+      <a class="brand-logo">RoTour - Site</a>
+    </div>
+    <div class="navbar-part">
+      <div>
+        <a>Holla</a>
+        <a>Holla</a>
+        <a>Holla</a>
+        <a *ngIf="!authService.isLoggedIn()" href="login">Login</a>
+        <button *ngIf="authService.isLoggedIn()" class="user-button invisible-button" (click)="toggleDropdown()"
+                style="height: inherit; width: inherit">[{{ ' ' + authService.getUsername() + ' '}}]
+        </button>
+        <div class="dropdown-items" [ngClass]="dropdownState" id="myDropdown">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <div class="divider"></div>
+          <a (click)="logoutUser()">Logout</a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+</div>

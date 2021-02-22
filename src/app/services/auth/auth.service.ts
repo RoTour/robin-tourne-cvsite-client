@@ -11,29 +11,38 @@ export class AuthService {
 
   private loginUrl = 'http://localhost:3000/auth/login';
 
-  private storageKey = 'contacts-jwt';
+  private tokenStorageKey = 'contacts-jwt';
+  private userStorageKey = 'user';
 
-  // private httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     Authorization: `JWT ${this.getToken()}`,
-  //   })
-  // };
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `JWT ${this.getToken()}`,
+      username: `${this.getUsername()}`,
+    })
+  };
 
-  setToken = (token: string) => {
-    localStorage.setItem(this.storageKey, token);
+  setData = (token: string, username: string) => {
+    localStorage.setItem(this.tokenStorageKey, token);
+    localStorage.setItem(this.userStorageKey, username);
   }
 
   getToken(): string | null{
-    return localStorage.getItem(this.storageKey);
+    return localStorage.getItem(this.tokenStorageKey);
+  }
+
+  getUsername(): string | null{
+    return localStorage.getItem(this.userStorageKey);
   }
 
   isLoggedIn = () => {
-    return (this.getToken() !== undefined && this.getToken() !== null);
+    return (this.getToken() !== undefined && this.getToken() !== null
+    && this.getUsername() !== undefined && this.getUsername() !== null);
   }
 
   logout = () => {
-    localStorage.removeItem(this.storageKey);
+    localStorage.removeItem(this.tokenStorageKey);
+    localStorage.removeItem(this.userStorageKey);
   }
 
   login = (payload: any) => {
