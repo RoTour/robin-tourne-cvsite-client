@@ -1,0 +1,21 @@
+#profilePicture {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  border-radius: 80% 80% 80% 80%;
+}
+
+.mt-3 {
+  margin-top: 3em;
+}
+
+.mt-2 {
+  margin-top: 2em;
+}
+
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
