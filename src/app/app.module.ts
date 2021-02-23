@@ -12,10 +12,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
+  { path: 'comments', component: CommentsComponent },
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

@@ -28,13 +28,13 @@
 <div class="row navbar-wrapper">
   <nav class="s12 navbar grey darken-4">
     <div class="navbar-part navbar-left-block">
-      <a class="brand-logo">RoTour - Site</a>
+      <a href="" class="brand-logo">RoTour - Site</a>
     </div>
     <div class="navbar-part">
       <div>
-        <a>Holla</a>
-        <a>Holla</a>
-        <a>Holla</a>
+        <a href="">CV-Game</a>
+        <a href="">CV-PDF</a>
+        <a href="comments">Comments</a>
         <a *ngIf="!authService.isLoggedIn()" href="login">Login</a>
         <button *ngIf="authService.isLoggedIn()" class="user-button invisible-button" (click)="toggleDropdown()"
                 style="height: inherit; width: inherit">[{{ ' ' + authService.getUsername() + ' '}}]
