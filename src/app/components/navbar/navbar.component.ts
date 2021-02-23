@@ -8,6 +8,9 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  constructor(public authService: AuthService) {
+  }
+
   items = [
     'My Skills',
     'CV-Game',
@@ -18,19 +21,21 @@ export class NavbarComponent implements OnInit {
 
   dropdownState = 'hiddendiv';
 
-  constructor(public authService: AuthService) {
+  private static capitalizeFirstLetter(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   ngOnInit(): void {
-    if (this.authService.isLoggedIn()) {
-    }
-  }
-
-
-
-  textToPath(str: string): string {
-    str = str.replace(' ', '-');
-    return str.toLowerCase();
+    // Hide dropdown zhen not still focused
+    window.onclick = (e: any) => {
+      if (!e.target.matches('.dropbtn')) {
+        const myDropdown = document.getElementById('myDropdown');
+        if (!myDropdown) { throw new Error('"myDropdown" not found! check navbar .html file!'); }
+        if (myDropdown.classList.contains('show')) {
+          this.toggleDropdown();
+        }
+      }
+    };
   }
 
   toggleDropdown(): void {
@@ -40,5 +45,11 @@ export class NavbarComponent implements OnInit {
   logoutUser(): void {
     this.authService.logout();
     location.reload();
+  }
+
+  getLoggedUserName(): string | undefined{
+    const userName = this.authService.getUsername();
+    if (!userName) { return ''; }
+    return NavbarComponent.capitalizeFirstLetter(userName);
   }
 }

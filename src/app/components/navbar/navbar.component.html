@@ -36,8 +36,8 @@
         <a href="">CV-PDF</a>
         <a href="comments">Comments</a>
         <a *ngIf="!authService.isLoggedIn()" href="login">Login</a>
-        <button *ngIf="authService.isLoggedIn()" class="user-button invisible-button" (click)="toggleDropdown()"
-                style="height: inherit; width: inherit">[{{ ' ' + authService.getUsername() + ' '}}]
+        <button *ngIf="authService.isLoggedIn()" class="dropbtn user-button invisible-button" (click)="toggleDropdown()"
+                style="height: inherit; width: inherit">[{{ ' ' + getLoggedUserName() + ' '}}]
         </button>
         <div class="dropdown-items" [ngClass]="dropdownState" id="myDropdown">
           <a href="#">Link 1</a>
