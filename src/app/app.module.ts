@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,14 +28,16 @@ const routes: Routes = [
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    CommentsComponent
+    CommentsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [ArticleService, PostService, AuthService],
   bootstrap: [AppComponent]

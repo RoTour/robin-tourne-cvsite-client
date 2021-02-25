@@ -1,0 +1,30 @@
+footer {
+  width: 100%;
+  padding: 1vh 5vh;
+  font-family: inherit;
+}
+
+footer > ul {
+  list-style: none;
+}
+
+footer h1 {
+  margin: 0;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 20px 0 5px 0;
+  color: rgba(255,255,255,0.6);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.250em;
+}
+
+li > a, li > p {
+  margin: 1em 0;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+fa-icon {
+  margin-right: 2vh;
+}
