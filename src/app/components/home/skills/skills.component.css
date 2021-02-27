@@ -1,0 +1,35 @@
+#nodejs-img {
+  max-width: 35%;
+}
+
+#angular-img {
+  max-width: 35%;
+}
+
+#tsjs-img {
+  max-width: 40%;
+}
+
+#mysql-img {
+  max-width: 35%;
+}
+
+#laravel-img {
+  max-width: 35%;
+}
+
+#materialize-img {
+  max-width: 35%;
+}
+
+.mt-5 {
+  margin-top: 10vh;
+}
+
+h2 {
+  font-weight: bolder;
+}
+
+p {
+  font-size: large;
+}

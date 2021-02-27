@@ -43,6 +43,7 @@ export class AuthService {
   logout = () => {
     localStorage.removeItem(this.tokenStorageKey);
     localStorage.removeItem(this.userStorageKey);
+    location.reload();
   }
 
   login = (payload: any) => {

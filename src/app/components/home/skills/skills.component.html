@@ -1,0 +1,20 @@
+<div class="row">
+  <h2>Mes compétences techniques:</h2>
+</div>
+
+<div class="row">
+  <div *ngFor="let skill of skills; index as i">
+    <div *ngIf="i%nbColumn===0">
+      <div class="row" style="text-align: center">
+        <div style="height: 100%" class="col mt-5" [class]="nbColumn === 1 ? 's12' : nbColumn === 2 ? 'm6' : 'l4'" *ngFor="let skill of skills.slice(i, i+nbColumn)">
+          <img *ngIf="skill" alt="{{skill.title}}" [src]="'assets/images/'+skill.name+'.png'" [id]="skill.name+'-img'">
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col" [class]="nbColumn === 1 ? 's12' : nbColumn === 2 ? 'm6' : 'l4'" *ngFor="let skill of skills.slice(i, i+nbColumn)">
+          <p *ngIf="skill">{{skill.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

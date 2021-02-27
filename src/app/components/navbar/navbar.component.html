@@ -32,10 +32,10 @@
     </div>
     <div class="navbar-part">
       <div>
-        <a href="">CV-Game</a>
-        <a href="">CV-PDF</a>
-        <a href="comments">Comments</a>
-        <a *ngIf="!authService.isLoggedIn()" href="login">Login</a>
+        <a href="">CV Intéractif</a>
+        <a href="">CV pdf</a>
+        <a href="comments">Commentaires</a>
+        <a *ngIf="!authService.isLoggedIn()" class="bolder" href="login">Login | Register</a>
         <button *ngIf="authService.isLoggedIn()" class="dropbtn user-button invisible-button" (click)="toggleDropdown()"
                 style="height: inherit; width: inherit">[{{ ' ' + getLoggedUserName() + ' '}}]
         </button>

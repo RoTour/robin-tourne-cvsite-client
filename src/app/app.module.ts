@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SkillsComponent } from './components/home/skills/skills.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
     HomeComponent,
     CommentsComponent,
     FooterComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,

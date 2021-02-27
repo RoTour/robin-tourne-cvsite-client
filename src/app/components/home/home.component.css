@@ -1,3 +1,7 @@
+.row {
+  margin: 25vh 0;
+}
+
 #profilePicture {
   max-width: 100%;
   margin-left: auto;
@@ -19,3 +23,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.big-text {
+  margin-bottom: 0;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+
