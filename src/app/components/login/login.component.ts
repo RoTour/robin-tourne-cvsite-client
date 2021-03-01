@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { faTimesCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+// import {  } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  COLORS = {
+    success: '00c853',
+    error: 'e53935',
+  };
   email = '';
   password = '';
-  message = '';
+  username = '';
+  popup = {
+    message: '',
+    color: this.COLORS.error,
+  };
+
+  faClose = faTimesCircle;
+  faUser = faUser;
+  selected = 'login';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -19,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit($event: Event): void {
     $event.preventDefault();
-    this.message = '';
+    this.popup.message = '';
     const payload = {
       email: this.email,
       password: this.password,
@@ -34,8 +48,34 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log(error);
-          this.message = 'Incorrect password or email.';
+          this.popup.message = 'Incorrect password or email.';
+          this.popup.color = this.COLORS.error;
         }
       );
+  }
+
+  register($event: Event): void {
+    $event.preventDefault();
+    const payload = {
+      email: this.email,
+      password: this.password,
+      username: this.username,
+      role: '0',
+    };
+    this.authService.register(payload)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.popup.message = 'Account created successfully, you can now sign-in';
+          this.popup.color = this.COLORS.success;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  emptyMessage(): void {
+    this.popup.message = '';
   }
 }

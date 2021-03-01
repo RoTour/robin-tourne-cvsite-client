@@ -32,8 +32,8 @@
     </div>
     <div class="navbar-part">
       <div>
-        <a href="">CV Intéractif</a>
-        <a href="">CV pdf</a>
+        <a target="_blank" href="https://robin-tourne-cvgame.herokuapp.com/">CV Intéractif</a>
+        <a target="_blank" href="assets/files/Robin_tourne_CV.pdf">CV pdf</a>
         <a href="comments">Commentaires</a>
         <a *ngIf="!authService.isLoggedIn()" class="bolder" href="login">Login | Register</a>
         <button *ngIf="authService.isLoggedIn()" class="dropbtn user-button invisible-button" (click)="toggleDropdown()"

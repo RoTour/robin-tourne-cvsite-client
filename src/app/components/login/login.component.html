@@ -1,27 +1,49 @@
-<div class="row" id="login-form" (submit)="onSubmit($event)">
+<div class="row messenger" [style.background-color]="'#'+popup.color" [ngClass]="popup.message ? 'show' : 'hiddendiv'">
+  <p class="col s12">{{ popup.message }}</p>
+  <button class="invisible-button" type="button" (click)="emptyMessage()">
+    <fa-icon [icon]="faClose" size="lg"></fa-icon>
+  </button>
+</div>
+<div class="row" id="login-form" (submit)="selected==='login' ? onSubmit($event) : register($event)">
   <form class="col s12">
     <div class="row">
-      <div class="input-field col s6 offset-s3">
+      <div class="col s12 m6 offset-m3">
+        <button type="button" class="col s6 btn waves-effect waves-light"
+                [class]="selected==='login' ? 'highlighted green accent-4' : 'not-selected'"
+                (click)="selected = 'login'">Login
+        </button>
+        <button type="button" class="col s6 btn waves-effect waves-light"
+                [class]="selected!=='login' ? 'highlighted green accent-4' : 'not-selected'"
+                (click)="selected = 'register'">Register
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 offset-m3">
         <i class="material-icons prefix">email</i>
         <input id="icon_prefix" type="email" class="validate" [(ngModel)]="email" name="email">
-        <label for="icon_prefix">First Name</label>
+        <label for="icon_prefix">Email</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6 offset-s3">
+      <div class="input-field col s12 m6 offset-m3">
         <i class="material-icons prefix">lock</i>
         <input id="icon_lock" type="password" class="validate" [(ngModel)]="password" name="password">
-        <label for="icon_lock">Telephone</label>
+        <label for="icon_lock">Mot de passe</label>
+      </div>
+    </div>
+    <div class="row" *ngIf="selected !== 'login'">
+      <div class="input-field col s12 m6 offset-m3">
+        <fa-icon [icon]="faUser" class="material-icons prefix"></fa-icon>
+        <input id="icon_user" type="text" class="validate" [(ngModel)]="username" name="password">
+        <label for="icon_user">Nom d'utilisateur</label>
       </div>
     </div>
     <div class="row">
-      <p>{{ message }}</p>
-    </div>
-    <div class="row">
-      <div class="col s3 offset-s3">
+      <div class="col s12 m3 offset-m3">
         <button type="submit" class="waves-effect waves-light btn green accent-4">
           <i class="material-icons right">arrow_forward</i>
-          Login
+          {{ selected }}
         </button>
       </div>
     </div>

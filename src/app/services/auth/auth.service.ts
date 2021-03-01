@@ -10,17 +10,18 @@ export class AuthService {
   }
 
   private loginUrl = 'http://localhost:3000/auth/login';
+  private registerUrl = 'http://localhost:3000/auth/register';
 
   private tokenStorageKey = 'contacts-jwt';
   private userStorageKey = 'user';
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `JWT ${this.getToken()}`,
-      username: `${this.getUsername()}`,
-    })
-  };
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     Authorization: `JWT ${this.getToken()}`,
+  //     username: `${this.getUsername()}`,
+  //   })
+  // };
 
   setData = (token: string, username: string) => {
     localStorage.setItem(this.tokenStorageKey, token);
@@ -48,5 +49,9 @@ export class AuthService {
 
   login = (payload: any) => {
     return this.http.post(this.loginUrl, payload);
+  }
+
+  register = (payload: any) => {
+    return this.http.post(this.registerUrl, payload);
   }
 }
