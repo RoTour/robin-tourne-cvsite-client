@@ -1,7 +1,7 @@
 /* General CSS Setup */
 body{
   background-color: lightblue;
-  font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans;
+  font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans, serif;
 }
 
 /* container */
@@ -49,7 +49,7 @@ body{
   height: 0;
   left: -20px;
   right: auto;
-  top: 0px;
+  top: 0;
   bottom: auto;
   border: 22px solid;
   border-color: lightyellow transparent transparent transparent;
@@ -99,7 +99,7 @@ body{
   position: absolute;
   width: 0;
   height: 0;
-  left: 0px;
+  left: 0;
   right: auto;
   top: auto;
   bottom: -20px;
@@ -156,19 +156,6 @@ body{
   border: 12px solid;
   border-color: lightyellow lightyellow transparent transparent;
 }
-/*
-	left: -8px;
-  right: auto;
-  top: auto;
-	bottom: -40px;
-	border: 32px solid;
-	border-color: transparent transparent transparent #666;
-	left: 0px;
-  right: auto;
-  top: auto;
-	bottom: -20px;
-	border: 22px solid;
-	border-color: transparent transparent transparent lightyellow;
 
 /*Right triangle, placed bottom right side slightly in*/
 .tri-right.border.btm-right:before {
@@ -188,7 +175,7 @@ body{
   width: 0;
   height: 0;
   left: auto;
-  right: 0px;
+  right: 0;
   bottom: -20px;
   border: 12px solid;
   border-color: lightyellow lightyellow transparent transparent;
@@ -240,7 +227,7 @@ body{
   height: 0;
   left: auto;
   right: -20px;
-  top: 0px;
+  top: 0;
   bottom: auto;
   border: 20px solid;
   border-color: lightyellow transparent transparent transparent;
@@ -254,10 +241,23 @@ body{
 }
 .talktext p{
   /* remove webkit p margins */
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
 }
 
 .float-right {
   float: right;
+}
+
+.user {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.spaced-from-navbar {
+  margin-top: 40px;
 }

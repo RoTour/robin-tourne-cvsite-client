@@ -10,17 +10,13 @@ import { PostService } from '../../services/post/post.service';
 export class CommentsComponent implements OnInit {
 
   posts: Post[] = [];
-  private postAlignedToRight = false;
 
   constructor(private postApi: PostService) {
-  }
-
-  ngOnInit(): void {
     this.postApi.getPosts()
     .subscribe(
       (data: any) => {
         data.forEach((it: any) => {
-          this.posts.unshift(new Post(it.id, it.text, it.createdAt, it.updatedAt, it.ownerName));
+          this.posts.push(new Post(it.id, it.text, it.createdAt, it.updatedAt, it.ownerName));
         });
         console.log(this.posts);
       },
@@ -30,12 +26,9 @@ export class CommentsComponent implements OnInit {
     );
   }
 
-  getPostAlignAnToggle(): boolean {
-    this.postAlignedToRight = !this.postAlignedToRight;
-    return !this.postAlignedToRight;
-  }
-  getPostAlign(): boolean {
-    return this.postAlignedToRight;
-  }
+  ngOnInit(): void {}
 
+  getDate(date: Date): Date {
+    return new Date(date);
+  }
 }

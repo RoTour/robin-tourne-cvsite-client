@@ -20,7 +20,7 @@ import { SkillsComponent } from './components/home/skills/skills.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
-  { path: 'comments', component: CommentsComponent },
+  { path: 'posts', component: CommentsComponent },
 ];
 
 @NgModule({
