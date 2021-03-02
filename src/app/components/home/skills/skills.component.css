@@ -22,6 +22,22 @@
   max-width: 35%;
 }
 
+#curious-img {
+  max-width: 50%;
+}
+
+#gears-img {
+  max-width: 50%;
+}
+
+#multitask-img {
+  max-width: 50%;
+}
+
+#consciencieux-img {
+  max-width: 35%;
+}
+
 .mt-5 {
   margin-top: 10vh;
 }
@@ -32,4 +48,8 @@ h2 {
 
 p {
   font-size: large;
+}
+
+.mega-spacing {
+  margin-top: 25vh;
 }

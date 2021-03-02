@@ -1,18 +1,36 @@
-<div class="row">
-  <h2>Mes compétences techniques:</h2>
+<div class="row mega-spacing">
+  <h2>Compétences techniques: </h2>
 </div>
-
 <div class="row">
-  <div *ngFor="let skill of skills; index as i">
-    <div *ngIf="i%nbColumn===0">
+  <div *ngFor="let skill of hardSkills; index as i">
+    <div *ngIf="i%nbColumnHS===0">
       <div class="row" style="text-align: center">
-        <div style="height: 100%" class="col mt-5" [class]="nbColumn === 1 ? 's12' : nbColumn === 2 ? 'm6' : 'l4'" *ngFor="let skill of skills.slice(i, i+nbColumn)">
+        <div style="height: 100%" class="col mt-5" [class]="nbColumnHS === 1 ? 's12' : nbColumnHS === 2 ? 'm6' : 'l4'" *ngFor="let skill of hardSkills.slice(i, i+nbColumnHS)">
           <img *ngIf="skill" alt="{{skill.title}}" [src]="'assets/images/'+skill.name+'.png'" [id]="skill.name+'-img'">
         </div>
       </div>
       <div class="row" style="text-align: center">
-        <div class="col" [class]="nbColumn === 1 ? 's12' : nbColumn === 2 ? 'm6' : 'l4'" *ngFor="let skill of skills.slice(i, i+nbColumn)">
-          <p *ngIf="skill">{{skill.title}}</p>
+        <div class="col" [class]="nbColumnHS === 1 ? 's12' : nbColumnHS === 2 ? 'm6' : 'l4'" *ngFor="let skill of hardSkills.slice(i, i+nbColumnHS)">
+          <p style="font-weight: bolder" *ngIf="skill">{{skill.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mega-spacing">
+  <h2> Savoir être: </h2>
+</div>
+<div class="row">
+  <div *ngFor="let softSkill of softSkills; index as i">
+    <div *ngIf="i%nbColumnSS===0">
+      <div class="row" style="text-align: center">
+        <div style="height: 100%" class="col mt-5" [class]="nbColumnSS === 2 ? 's6' : 'm3'" *ngFor="let softSkill of softSkills.slice(i, i+nbColumnSS)">
+          <img *ngIf="softSkill" alt="{{softSkill.title}}" [src]="'assets/images/'+softSkill.name+'.png'" [id]="softSkill.name+'-img'">
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col" [class]="nbColumnSS === 2 ? 's6' : 'm3'" *ngFor="let softSkill of softSkills.slice(i, i+nbColumnSS)">
+          <p style="font-weight: bolder" *ngIf="softSkill">{{softSkill.title}}</p>
         </div>
       </div>
     </div>

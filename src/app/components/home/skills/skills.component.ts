@@ -12,7 +12,7 @@ export class SkillsComponent implements OnInit {
     width: window.innerWidth,
   };
 
-  skills = [
+  hardSkills = [
     { name: 'nodejs', description: '', title: 'Nodejs / Expressjs' },
     { name: 'angular', description: '', title: 'Angular' },
     { name: 'tsjs', description: '', title: 'Javascript / Typescript' },
@@ -20,7 +20,14 @@ export class SkillsComponent implements OnInit {
     { name: 'materialize', description: '', title: 'Materialize' },
     { name: 'mysql', description: '', title: 'MySQL / PostgreSQL / SQLite' },
   ];
-  nbColumn = this.screen.width < 600 ? 1 : this.screen.width < 993 ? 2 : 3;
+  softSkills = [
+    { name: 'curious', description: '', title: 'Curieux' },
+    { name: 'gears', description: '', title: 'Autonome' },
+    { name: 'multitask', description: '', title: 'Adaptatif' },
+    { name: 'consciencieux', description: '', title: 'Consciencieux' },
+  ];
+  nbColumnHS = this.screen.width < 600 ? 1 : this.screen.width < 993 ? 2 : 3;
+  nbColumnSS = this.screen.width < 600 ? 2 : 4;
 
   constructor() {
     this.getScreenSize();
@@ -33,8 +40,8 @@ export class SkillsComponent implements OnInit {
   getScreenSize(event?: any): void {
     this.screen.height = window.innerHeight;
     this.screen.width = window.innerWidth;
-    const oldNbCol = this.nbColumn;
-    this.nbColumn = this.screen.width < 600 ? 1 : this.screen.width < 993 ? 2 : 3;
-    if (oldNbCol !== this.nbColumn) { location.reload(); }
+    const oldNbCol = this.nbColumnHS;
+    this.nbColumnHS = this.screen.width < 600 ? 1 : this.screen.width < 993 ? 2 : 3;
+    if (oldNbCol !== this.nbColumnHS) { location.reload(); }
   }
 }
