@@ -15,6 +15,6 @@ export class PostService {
   }
 
   sendPost = (payload: any, options: any) => {
-    return this.http.post('http://localhost:3000/post', payload, options);
+    return this.http.post(this.baseUrl + 'post', payload, options);
   }
 }
