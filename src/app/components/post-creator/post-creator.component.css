@@ -1,0 +1,13 @@
+.container {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.post-form {
+  margin-bottom: 50vh;
+}
+
+.btn {
+  float: right;
+  margin-top: 2vh;
+}

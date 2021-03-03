@@ -18,7 +18,10 @@ export class CommentsComponent implements OnInit {
         data.forEach((it: any) => {
           this.posts.push(new Post(it.id, it.text, it.createdAt, it.updatedAt, it.ownerName));
         });
-        console.log(this.posts);
+        this.posts.sort((post1: Post, post2: Post) => {
+          if (post1.createdAt <= post2.createdAt) { return 1; }
+          else { return -1; }
+        });
       },
       error => {
         console.error(error);

@@ -1,1 +1,10 @@
-<p>post-creator works!</p>
+<div class="container">
+  <h2>Nouveau Post</h2>
+  <form [formGroup]="form" class="post-form">
+    <div class="NgxEditor__Wrapper">
+      <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+      <ngx-editor [editor]="editor" formControlName="editorContent"> </ngx-editor>
+    </div>
+    <button (click)="onSubmitPost()" class="btn waves-effect green darken-4" type="submit">Envoyer</button>
+  </form>
+</div>

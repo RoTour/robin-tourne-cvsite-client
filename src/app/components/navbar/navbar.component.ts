@@ -8,9 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public authService: AuthService) {
-    console.log('constructor');
-  }
+  constructor(public authService: AuthService) {}
 
   items = [
     'My Skills',
@@ -41,9 +39,6 @@ export class NavbarComponent implements OnInit {
 
     if (this.authService.isLoggedIn()) {
       this.getUserInfos();
-      console.log('connected');
-    } else {
-      console.log('not connected');
     }
   }
 

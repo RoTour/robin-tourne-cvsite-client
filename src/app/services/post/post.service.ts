@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private fetchAllPostsUrl = 'http://localhost:3000/post';
+  private baseUrl = 'http://localhost:3000/';
+
   constructor(private http: HttpClient) { }
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    })
-  };
   getPosts = () => {
-    return this.http.get(this.fetchAllPostsUrl, this.httpOptions);
+    return this.http.get(this.baseUrl + 'post');
+  }
+
+  sendPost = (payload: any, options: any) => {
+    return this.http.post('http://localhost:3000/post', payload, options);
   }
 }
