@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { faTimesCircle, faUser } from '@fortawesome/free-solid-svg-icons';
-// import {  } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-login',

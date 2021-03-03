@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PostService {
-  private baseUrl = 'http://localhost:3000/';
+  // private baseUrl = 'http://localhost:3000/';
+  private baseUrl = 'https://robin-tourne-cvsite-server.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 
