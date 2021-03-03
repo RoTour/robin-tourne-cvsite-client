@@ -17,13 +17,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SkillsComponent } from './components/home/skills/skills.component';
 import { TilesComponent } from './components/home/tiles/tiles.component';
-import { PostCreatorComponent } from './post-creator/post-creator.component';
+import { PostCreatorComponent } from './components/post-creator/post-creator.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
   { path: 'posts', component: CommentsComponent },
-  { path: 'posts/creator', component: CommentsComponent },
+  { path: 'posts/creator', component: PostCreatorComponent },
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(public authService: AuthService) {
+    console.log('constructor');
   }
 
   items = [
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   ];
 
   username = '';
+  role = 0;
 
   dropdownState = 'hiddendiv';
 
@@ -36,6 +38,13 @@ export class NavbarComponent implements OnInit {
         }
       }
     };
+
+    if (this.authService.isLoggedIn()) {
+      this.getUserInfos();
+      console.log('connected');
+    } else {
+      console.log('not connected');
+    }
   }
 
   toggleDropdown(): void {
@@ -47,9 +56,16 @@ export class NavbarComponent implements OnInit {
     location.reload();
   }
 
-  getLoggedUserName(): string | undefined{
-    const userName = this.authService.getUsername();
-    if (!userName) { return ''; }
-    return NavbarComponent.capitalizeFirstLetter(userName);
+  getUserInfos(): void {
+    this.authService.getUserInfos()
+      .subscribe(
+        (data: any) => {
+          this.username = NavbarComponent.capitalizeFirstLetter(data.username);
+          this.role = data.role;
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 }

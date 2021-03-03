@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit($event: Event): void {
+  login($event: Event): void {
     $event.preventDefault();
     this.popup.message = '';
     const payload = {
@@ -42,9 +42,9 @@ export class LoginComponent implements OnInit {
       .subscribe(
         async (data: any) => {
           console.log(data);
-          // console.log([{ broken: data['token'] }, { clea: data.token }]);
           this.authService.setData(data.token, data.username);
           await this.router.navigate(['/']);
+          location.reload();
         },
         error => {
           console.log(error);

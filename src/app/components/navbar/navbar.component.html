@@ -7,15 +7,14 @@
       <div>
         <a target="_blank" href="https://robin-tourne-cvgame.herokuapp.com/">CV Intéractif</a>
         <a target="_blank" href="assets/files/Robin_tourne_CV.pdf">CV pdf</a>
-        <a href="posts">Posts</a>
-        <a *ngIf="!authService.isLoggedIn()" class="bolder" href="login">Login | Register</a>
+        <a [href]="'posts'">Posts</a>
+        <a *ngIf="!authService.isLoggedIn()" class="bolder" [href]="'login'">Login | Register</a>
         <button *ngIf="authService.isLoggedIn()" class="dropbtn user-button invisible-button" (click)="toggleDropdown()"
-                style="height: inherit; width: inherit">[{{ ' ' + getLoggedUserName() + ' '}}]
+                style="height: inherit; width: inherit">[{{ ' ' + username + ' '}}]
         </button>
         <div class="dropdown-items" [ngClass]="dropdownState" id="myDropdown">
-<!--          <a href="#">Link 1</a>-->
-<!--          <a href="#">Link 2</a>-->
-<!--          <div class="divider"></div>-->
+          <a *ngIf="role" [href]="'posts/creator'">Create new post</a>
+          <div class="divider"></div>
           <a (click)="logoutUser()">Logout</a>
         </div>
 

@@ -4,7 +4,7 @@
     <fa-icon [icon]="faClose" size="lg"></fa-icon>
   </button>
 </div>
-<div class="row" id="login-form" (submit)="selected==='login' ? onSubmit($event) : register($event)">
+<div class="row" id="login-form" (submit)="selected==='login' ? login($event) : register($event)">
   <form class="col s12">
     <div class="row">
       <div class="col s12 m6 offset-m3">
