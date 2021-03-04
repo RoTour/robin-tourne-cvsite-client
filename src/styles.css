@@ -16,31 +16,38 @@ app-footer {
   }
   .tablet {
     height: 0;
-    display: none;
+    display: none !important;
   }
   .phone {
     height: 0;
-    display: none;
+    display: none !important;
   }
   .mobile {
     height: 0;
-    display: none;
+    display: none !important;
+  }
+  .desktop-tablet {
+    transform: scale(1);
   }
 }
 /* Tablet */
 @media screen and (min-width: 601px) and (max-width: 992px){
   .desktop {
     height: 0;
-    display: none;
+    display: none !important;
   }
   .tablet {
     transform: scale(1);
   }
   .phone {
     height: 0;
-    display: none;
+    display: none !important;
   }
   .mobile {
+    transform: scale(1);
+  }
+
+  .desktop-tablet {
     transform: scale(1);
   }
 }
@@ -49,10 +56,10 @@ app-footer {
 @media screen and (max-width: 600px){
   .desktop {
     height: 0;
-    display: none;
+    display: none !important;
   }
   .tablet {
-    display: none;
+    display: none !important;
     height: 0;
   }
   .phone {
@@ -60,6 +67,10 @@ app-footer {
   }
   .mobile {
     transform: scale(1);
+  }
+  .desktop-tablet {
+    display: none !important;
+    height: 0;
   }
 }
 

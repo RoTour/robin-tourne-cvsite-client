@@ -10,6 +10,11 @@
   border-radius: 80% 80% 80% 80%;
 }
 
+#profilePictureMobile {
+  max-width: 100%;
+  border-radius: 80% 80% 80% 80%;
+}
+
 .mt-3 {
   margin-top: 3em;
 }
@@ -30,4 +35,6 @@
   font-weight: bolder;
 }
 
-
+.introduction {
+  display: flex;
+}
