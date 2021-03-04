@@ -10,6 +10,7 @@ import { PostService } from '../../services/post/post.service';
 export class CommentsComponent implements OnInit {
 
   posts: Post[] = [];
+  loadingState = 'loading';
 
   constructor(private postApi: PostService) {
     this.postApi.getPosts()
@@ -22,9 +23,11 @@ export class CommentsComponent implements OnInit {
           if (post1.createdAt <= post2.createdAt) { return 1; }
           else { return -1; }
         });
+        this.loadingState = 'done';
       },
       error => {
         console.error(error);
+        this.loadingState = 'error';
       }
     );
   }

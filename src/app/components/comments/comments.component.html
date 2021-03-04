@@ -1,4 +1,7 @@
 <div class="row spaced-from-navbar">
+  <div class="col s12" [ngClass]="loadingState==='done' ? 'hide' : ''" style="display: flex; justify-content: center">
+    <div class="lds-dual-ring"></div>
+  </div>
   <div class="col offset-s2 s8">
     <div *ngFor="let post of posts; index as i" class="row">
       <div class="talk-bubble tri-right round border" [ngClass]="i%2===0 ? 'btm-left-in' : 'float-right btm-right-in'">
