@@ -8,3 +8,58 @@ body {
 app-footer {
   width: 100%;
 }
+
+/* Desktop */
+@media screen and (min-width: 993px){
+  .desktop {
+    transform: scale(1);
+  }
+  .tablet {
+    height: 0;
+    display: none;
+  }
+  .phone {
+    height: 0;
+    display: none;
+  }
+  .mobile {
+    height: 0;
+    display: none;
+  }
+}
+/* Tablet */
+@media screen and (min-width: 601px) and (max-width: 992px){
+  .desktop {
+    height: 0;
+    display: none;
+  }
+  .tablet {
+    transform: scale(1);
+  }
+  .phone {
+    height: 0;
+    display: none;
+  }
+  .mobile {
+    transform: scale(1);
+  }
+}
+
+/* Phone */
+@media screen and (max-width: 600px){
+  .desktop {
+    height: 0;
+    display: none;
+  }
+  .tablet {
+    display: none;
+    height: 0;
+  }
+  .phone {
+    transform: scale(1);
+  }
+  .mobile {
+    transform: scale(1);
+  }
+}
+

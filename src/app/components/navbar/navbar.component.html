@@ -1,27 +1,50 @@
-<div class="row navbar-wrapper">
-  <nav class="s12 navbar grey darken-4">
-    <div class="navbar-part navbar-left-block">
-      <div>
-        <a [href]="'/'" class="home-link">Home</a>
-      </div>
-    </div>
-    <div class="navbar-part">
-      <div>
-        <a target="_blank" href="https://robin-tourne-cvgame.herokuapp.com/">CV Intéractif</a>
-        <a target="_blank" href="assets/files/Robin_Tourne_CV.pdf">CV pdf</a>
-        <a [href]="'posts'">Posts</a>
-        <a *ngIf="!authService.isLoggedIn()" class="bolder" [href]="'login'">Login | Register</a>
-        <button *ngIf="authService.isLoggedIn()" class="dropbtn user-button invisible-button" (click)="toggleDropdown()"
-                style="height: inherit; width: inherit">[{{ ' ' + username + ' '}}]
-        </button>
-        <div class="dropdown-items" [ngClass]="dropdownState" id="myDropdown">
-          <a *ngIf="role" [href]="'posts/creator'">Create new post</a>
-          <div class="divider"></div>
-          <a (click)="logoutUser()">Logout</a>
+<div class="desktop">
+  <div class="row navbar-wrapper nav-wrapper">
+    <nav class="s12 navbar grey darken-4">
+      <div class="navbar-part navbar-left-block">
+        <div>
+          <a [href]="'/'" class="home-link">Home</a>
         </div>
-
       </div>
-    </div>
-  </nav>
+      <div class="navbar-part">
+        <div>
+          <a target="_blank" href="https://robin-tourne-cvgame.herokuapp.com/">CV Intéractif</a>
+          <a target="_blank" href="assets/files/Robin_Tourne_CV.pdf">CV pdf</a>
+          <a [href]="'posts'">Posts</a>
+          <a *ngIf="!authService.isLoggedIn()" class="bolder" [href]="'login'">Login | Register</a>
+          <button *ngIf="authService.isLoggedIn()" class="dropbtn user-button invisible-button"
+                  (click)="toggleDropdown()"
+                  style="height: inherit; width: inherit">[{{ ' ' + username + ' '}}]
+          </button>
+          <div class="dropdown-items" [ngClass]="dropdownState" id="myDropdown">
+            <a *ngIf="role" [href]="'posts/creator'">Create new post</a>
+            <div class="divider"></div>
+            <a (click)="logoutUser()">Logout</a>
+          </div>
 
+        </div>
+      </div>
+    </nav>
+  </div>
+<!--  <ul class="sidenav" id="mobile-demo">-->
+<!--    <li><a target="_blank" href="https://robin-tourne-cvgame.herokuapp.com/">CV Intéractif</a></li>-->
+<!--    <li><a target="_blank" href="assets/files/Robin_Tourne_CV.pdf">CV pdf</a></li>-->
+<!--    <li><a *ngIf="!authService.isLoggedIn()" class="bolder" [href]="'login'">Login | Register</a></li>-->
+<!--  </ul>-->
+</div>
+
+
+<!--///////////////////////////-->
+
+<div class="navbar-wrapper mobile">
+  <div class="navbar-header">
+    <button  (click)="toggleNavbarExtended()" class="invisible-button" id="expand-menu"><fa-icon [icon]="faMenu" size="2x"></fa-icon></button>
+    <a [href]="''" id="home-link">Home</a>
+  </div>
+  <div class="navbar-extended" [class]="navbarExtended ? '' : 'hide'">
+    <a target="_blank" href="https://robin-tourne-cvgame.herokuapp.com/">CV Intéractif</a>
+    <a target="_blank" href="assets/files/Robin_Tourne_CV.pdf">CV pdf</a>
+    <a [href]="'posts'">Posts</a>
+    <a *ngIf="!authService.isLoggedIn()" class="bolder" [href]="'login'">Login | Register</a>
+  </div>
 </div>

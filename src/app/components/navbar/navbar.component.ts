@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -16,22 +17,25 @@ export class NavbarComponent implements OnInit {
     'Comments',
   ];
 
+  faMenu = faBars;
+
   username = '';
   role = 0;
 
   dropdownState = 'hiddendiv';
+  navbarExtended = false;
 
   private static capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   ngOnInit(): void {
-    // Hide dropdown zhen not still focused
+    // Hide dropdown when not still focused
     window.onclick = (e: any) => {
       if (!e.target.matches('.dropbtn')) {
         const myDropdown = document.getElementById('myDropdown');
-        if (!myDropdown) { throw new Error('"myDropdown" not found! check navbar .html file!'); }
-        if (myDropdown.classList.contains('show')) {
+        // if (!myDropdown) { throw new Error('"myDropdown" not found! check navbar .html file!'); }
+        if (myDropdown && myDropdown.classList.contains('show')) {
           this.toggleDropdown();
         }
       }
@@ -62,5 +66,9 @@ export class NavbarComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  toggleNavbarExtended(): void {
+    this.navbarExtended = !this.navbarExtended;
   }
 }

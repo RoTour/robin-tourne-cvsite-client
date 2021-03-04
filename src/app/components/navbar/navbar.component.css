@@ -1,5 +1,32 @@
 .navbar-wrapper {
   margin-bottom: 0;
+  background-color: #212121;
+  color: white;
+}
+
+.navbar-header {
+  display: flex;
+}
+
+.navbar-extended {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-wrapper a {
+  color: white;
+  margin: 1em;
+}
+
+#expand-menu {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 1em;
+}
+
+#home-link {
+  font-size: x-large;
 }
 
 .navbar {
